@@ -35,7 +35,7 @@ class LiteReport(Report):
         keys_to_copy = self.options.keys_to_copy.split(" ")
 
         # lite report report only has the specific keys
-        lite_report = {k: results[k] for k in results.keys() & keys_to_copy}
+        lite_report = {k: results[k] for k in results.keys() & keys_to_copy if results[k]}
 
         # add specific keys from behavior
         behavior_keys_to_copy = self.options.behavior_keys_to_copy.split(" ")

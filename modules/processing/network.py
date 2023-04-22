@@ -13,6 +13,7 @@ import os
 import socket
 import struct
 import sys
+import ipaddress
 import tempfile
 import traceback
 from base64 import b64encode
@@ -88,6 +89,7 @@ passlist_file = proc_cfg.network.dnswhitelist_file
 
 enabled_ip_passlist = proc_cfg.network.ipwhitelist
 ip_passlist_file = proc_cfg.network.ipwhitelist_file
+network_passlist_file = proc_cfg.network.network_passlist_file
 
 # Be less verbose about httpreplay logging messages.
 logging.getLogger("httpreplay").setLevel(logging.CRITICAL)
@@ -101,6 +103,7 @@ if enabled_passlist and passlist_file:
             domain_passlist_re.append(domain)
 
 ip_passlist = set()
+network_passlist = []
 if enabled_ip_passlist and ip_passlist_file:
     f = path_read_file(os.path.join(CUCKOO_ROOT, ip_passlist_file), mode="text")
     for ip in f.splitlines():
@@ -250,7 +253,8 @@ class Pcap:
                 ip = convert_to_printable(connection["dst"])
 
                 if ip not in self.hosts:
-                    if ip in ip_passlist:
+                    ip_address = ipaddress.ip_address(ip)
+                    if ip in ip_passlist or any(ip_address in network for network in network_passlist):
                         return False
                     self.hosts.append(ip)
 
