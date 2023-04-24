@@ -126,7 +126,7 @@ class Dll(Package):
                         args += f" {arguments}"
                     ret_list.append(self.execute(rundll32, args, path))
                 # if there are multiple functions launch them by their ordinal number in a for loop
-                for i in range(start, end+1, 1):
+                for i in range(start, end + 1, 1):
                     args = f'"{path}",#{i}'
                     if arguments:
                         args += f" {arguments}"
