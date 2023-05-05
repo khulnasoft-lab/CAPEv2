@@ -27,6 +27,7 @@ download\.windowsupdate\.com$
 \.edgesuite\.net$
 \.blob\.core\.windows\.net$
 crl\.microsoft\.com
+*\.phicdn.net$
 
 \.windows\.com\.akadns\.net$
 \.microsoft\.com\.nsatc\.net$
@@ -216,6 +217,7 @@ acroipm.adobe.com
 
 # Akamai
 .*\.akamai.net$
+.*\.akamaiedge.net$
 
 # firefox
 firefox\.settings\.services\.mozilla\.com
@@ -240,6 +242,9 @@ d1zkz3k4cclnv6\.cloudfront\.net
 example\.org
 ipv4only\.arpa
 cs9\.wac\.phicdn\.net
+tracking-protection.prod.mozaws.net
+prod.content-signature-chains.prod.webservices.mozgcp.net
+
 
 # digicert
 \.digicert\.com$
@@ -253,3 +258,4 @@ use\.fontawesome\.com
 aadcdn\.msauth\.net
 code\.jquery\.com
 use\.fontawesome\.com\.cdn\.cloudflare\.net
+*\.cloudflare.com$
