@@ -1043,7 +1043,7 @@ def parse_request_arguments(request):
     unique = bool(request.POST.get("unique", False))
     tlp = request.POST.get("tlp", None)
     lin_options = request.POST.get("lin_options", "")
-    route = request.POST.get("route")
+    route = request.POST.get("route", routing_conf.routing.route)
     cape = request.POST.get("cape", "")
     # Linux options
     if lin_options:
