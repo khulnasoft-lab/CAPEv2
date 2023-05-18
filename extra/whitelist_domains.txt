@@ -27,7 +27,7 @@ download\.windowsupdate\.com$
 \.edgesuite\.net$
 \.blob\.core\.windows\.net$
 crl\.microsoft\.com
-*\.phicdn.net$
+.*\.phicdn.net$
 
 \.windows\.com\.akadns\.net$
 \.microsoft\.com\.nsatc\.net$
@@ -258,4 +258,4 @@ use\.fontawesome\.com
 aadcdn\.msauth\.net
 code\.jquery\.com
 use\.fontawesome\.com\.cdn\.cloudflare\.net
-*\.cloudflare.com$
+.*\.cloudflare.com$
