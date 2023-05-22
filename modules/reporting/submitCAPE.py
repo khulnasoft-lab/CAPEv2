@@ -161,7 +161,7 @@ class SubmitCAPE(Report):
             detections.add("Hancitor")
 
     def submit_task(
-        self, target, package, timeout, task_options, priority, machine, platform, memory, enforce_timeout, clock, tags, parent_id, tlp
+        self, target, package, timeout, task_options, priority, machine, platform, memory, enforce_timeout, clock, tags, parent_id, tlp, route
     ):
 
         db = Database()
@@ -181,6 +181,7 @@ class SubmitCAPE(Report):
                     "clock": clock,
                     "tags": tags,
                     "parent_id": parent_id,
+                    "route": route,
                 }
                 multipart_file = [("file", (os.path.basename(target), open(target, "rb")))]
                 try:
@@ -204,6 +205,7 @@ class SubmitCAPE(Report):
                     tags=None,
                     parent_id=parent_id,
                     tlp=tlp,
+                    route=route
                 )
             if task_id:
                 log.info(u'CAPE detection on file "{0}": {1} - added as CAPE task with ID {2}'.format(target, package, task_id))
@@ -287,6 +289,7 @@ class SubmitCAPE(Report):
                 None,
                 parent_id,
                 self.task["tlp"],
+                self.task["route"],
             )
             if task_id:
                 children = []
@@ -363,6 +366,7 @@ class SubmitCAPE(Report):
                 None,
                 parent_id,
                 self.task["tlp"],
+                self.task["route"],
             )
             if task_id:
                 children.append([task_id, package])
@@ -391,6 +395,7 @@ class SubmitCAPE(Report):
                     None,
                     parent_id,
                     self.task["tlp"],
+                    self.task["route"],
                 )
                 if task_id:
                     children.append([task_id, dumper])
