@@ -17,6 +17,7 @@ HAVE_SELENIUM = False
 try:
     from selenium import webdriver
     from selenium.webdriver.firefox.service import Service
+    from selenium.common.exceptions import TimeoutException
 
     HAVE_SELENIUM = True
 except Exception as ex:
@@ -85,10 +86,14 @@ class HtmlScrap(Thread, Auxiliary):
             firefox_options.headless = True
 
             self.browser = webdriver.Firefox(options=firefox_options, service=service)
+            self.browser.set_page_load_timeout(10)
 
             sample_url = 'file:///{}'.format(os.path.abspath(file_path))
-            self.browser.get(sample_url)
-            time.sleep(self.browser_runtime)
+            try:
+                self.browser.get(sample_url)
+                time.sleep(self.browser_runtime)
+            except TimeoutException:
+                log.warning('Page load timed out')
 
             log.debug('Starting upload')
             self.upload_to_htmlscrap_folder('scrap.dump', self.browser.page_source.encode())
