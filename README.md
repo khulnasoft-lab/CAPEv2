@@ -1,3 +1,5 @@
+# THIS REPO IS DEPRECATED
+
 ## CAPE: Malware Configuration And Payload Extraction - [Documentation](https://capev2.readthedocs.io/en/latest/#)
 
 CAPE is a malware sandbox. It was derived from Cuckoo with the goal of adding automated malware unpacking and config extraction - hence its name is an acronym: 'Config And Payload Extraction'. Automated unpacking allows classification based on Yara signatures to complement network (Suricata) and behavior (API) signatures.
