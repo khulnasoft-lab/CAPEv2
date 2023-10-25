@@ -73,7 +73,7 @@ django-allauth = "0.54.0"  # https://django-allauth.readthedocs.io/en/latest/con
 psycopg2-binary = "^2.9.5"
 ruff= "0.0.290"
 
-Werkzeug = "2.2.3"
+Werkzeug = "3.0.1"
 packaging = "23.1"
 setuptools = "68.0.0"
 # command line config manipulation
