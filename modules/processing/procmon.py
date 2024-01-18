@@ -17,7 +17,7 @@ class ProcmonLog(list):
         self.filepath = filepath
 
     def __next__(self):
-        iterator = xml.etree.ElementTree.iterparse(open(self.filepath, "rb"), events=["end"])
+        iterator = defusedxml.ElementTree.iterparse(open(self.filepath, "rb"), events=["end"])
         for _, element in iterator:
             if element.tag != "event":
                 continue
