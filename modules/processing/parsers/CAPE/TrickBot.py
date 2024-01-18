@@ -23,7 +23,6 @@
 
 import hashlib
 import struct
-import xml.etree.ElementTree as ET
 
 import pefile
 import yara
