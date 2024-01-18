@@ -420,7 +420,7 @@ class Node:
         return Node.from_xml(element, is_root=True)
 
     def to_xml(self) -> ET.Element:
-        """Convert this :class:`Node` into an :class:`xml.etree.ElementTree.Element`."""
+        """Convert this :class:`Node` into an :class:`defusedxml.ElementTree.Element`."""
         element = ET.Element("node")
 
         if self.name:
